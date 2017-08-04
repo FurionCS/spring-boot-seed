@@ -45,7 +45,7 @@
 		  -  impl
 			  - AbstractService  
   -  config
-	  -  CorsConfig (跨越处理)
+	  -  CorsConfig (跨域处理)
 	  -  DruidConfig
 - test
   - resource
