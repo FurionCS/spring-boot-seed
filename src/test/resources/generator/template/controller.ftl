@@ -1,5 +1,6 @@
 package ${basePackage}.web;
-import RestfulResponse;
+
+import com.company.common.response.RestfulResponse;
 import ${basePackage}.model.${modelNameUpperCamel};
 import ${basePackage}.service.${modelNameUpperCamel}Service;
 import com.github.pagehelper.PageHelper;
@@ -46,7 +47,7 @@ public class ${modelNameUpperCamel}Controller {
         return restfulResponse;
     }
     @PostMapping("/list")
-    public RestfulResponse list(@RequestParam(defaultValue = "0" value="pageIndex") Integer pageIndex, @RequestParam(defaultValue = "0" value="pageSize") Integer pageSize) {
+    public RestfulResponse list(@RequestParam(defaultValue = "0",value="pageIndex") Integer pageIndex, @RequestParam(defaultValue = "0",value="pageSize") Integer pageSize) {
         RestfulResponse restfulResponse=new RestfulResponse("${baseRequestMapping}/list");
         PageHelper.startPage(pageIndex, pageSize);
         List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAll();

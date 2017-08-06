@@ -12,6 +12,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -29,6 +30,7 @@ import java.util.HashMap;
  * @see org.springframework.web.bind.annotation.ControllerAdvice
  */
 @Aspect
+@Order(3)
 @Component
 public class HibernateValidatorAspect implements Ordered {
     private static final Logger LOGGER = LoggerFactory.getLogger(HibernateValidatorAspect.class);
