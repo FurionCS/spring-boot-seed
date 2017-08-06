@@ -7,13 +7,13 @@
 ### 快速开始
 
 - 修改各个application.properties中数据库连接信息
-![Alt text](./1501849233408.png)
+![Alt text](http://csbucket.oss-cn-shanghai.aliyuncs.com/ReadMe/seed_img_3.png)
 
 - 修改模板生成工具里面数据库连接信息
-![Alt text](./1501849397231.png)
+![Alt text](http://csbucket.oss-cn-shanghai.aliyuncs.com/ReadMe/seed_img_2.png)
 
 - 生成对应表的 mapper,dao,service,web
-![Alt text](./1501849495795.png)
+![Alt text](http://csbucket.oss-cn-shanghai.aliyuncs.com/ReadMe/seed_img_1.png)
 
 - 启动项目开始
 
@@ -45,7 +45,7 @@
 		  -  impl
 			  - AbstractService  
   -  config
-	  -  CorsConfig (跨越处理)
+	  -  CorsConfig (跨域处理)
 	  -  DruidConfig
 - test
   - resource
