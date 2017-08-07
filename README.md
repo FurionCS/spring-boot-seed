@@ -24,7 +24,7 @@
 - 整合了druid 数据库连接池和监控
 - 整合了 PageHelper分页插件
 - 提供了请求参数验证切面
-。。。
+- 提供 jwt token 认证 可配置过期时间，不过滤接口，
 
 ### 项目配置
 关于快速生成的名字配置和一些模板配置
@@ -44,6 +44,9 @@
 		  -   Service (通用service)
 		  -  impl
 			  - AbstractService  
+	  - jwt
+	       - AuthTokenDetails
+	       - JsonWebTokenUtility(jwt工具类)
   -  config
 	  -  CorsConfig (跨域处理)
 	  -  DruidConfig
