@@ -27,7 +27,7 @@ public class ${modelNameUpperCamel}Controller {
     private ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
 
     @PostMapping("/add")
-    public RestfulResponse add(@Valid @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel},BindingResult result) {
+    public RestfulResponse add(@Validated @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel},BindingResult result) {
         RestfulResponse restfulResponse=new RestfulResponse("${baseRequestMapping}/add");
         ${modelNameLowerCamel}Service.save(${modelNameLowerCamel});
         return restfulResponse;
@@ -41,7 +41,7 @@ public class ${modelNameUpperCamel}Controller {
     }
 
     @PostMapping("/update")
-    public RestfulResponse update(@Valid @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel},BindingResult result) {
+    public RestfulResponse update(@Validated @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel},BindingResult result) {
         RestfulResponse restfulResponse=new RestfulResponse("${baseRequestMapping}/update");
         ${modelNameLowerCamel}Service.update(${modelNameLowerCamel});
         return restfulResponse;
