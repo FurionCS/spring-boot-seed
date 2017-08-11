@@ -35,7 +35,12 @@ public class MongoAppender extends AppenderSkeleton {
             logsCollection = mongoDatabase.getCollection(collectionName, BasicDBObject.class);
         }
         logger.info("message:"+loggingEvent.getMessage());
-        logsCollection.insertOne((BasicDBObject) loggingEvent.getMessage());
+        try {
+            //TODO 这里可以尝试失败机制，超过多少次就报警，并不执行
+            logsCollection.insertOne((BasicDBObject) loggingEvent.getMessage());
+        }catch (Exception e){
+            logger.error("error:插入日志失败");
+        }
     }
 
     public void close() {
