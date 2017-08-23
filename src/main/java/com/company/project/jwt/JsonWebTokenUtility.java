@@ -33,7 +33,7 @@ public class JsonWebTokenUtility {
     /**
      * 过期时间 单位分 默认120
      */
-    @Value("${jwt.expireTime}")
+    @Value("${jwt.expireTime:120}")
     private Integer expire;
     private Key secretKey;
 
