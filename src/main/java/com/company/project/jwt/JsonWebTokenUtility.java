@@ -7,24 +7,26 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import lombok.extern.slf4j.Slf4j;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
-import java.util.Base64;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Token生成工具类
  * <p/>
  */
 @Component
+@NoArgsConstructor
 public class JsonWebTokenUtility {
-    private SignatureAlgorithm signatureAlgorithm;
+    private static SignatureAlgorithm signatureAlgorithm;
+    static{
+        //算法
+        signatureAlgorithm = SignatureAlgorithm.HS512;
+    }
     /**
      * 秘钥
      */
@@ -36,22 +38,11 @@ public class JsonWebTokenUtility {
     @Value("${jwt.expireTime:120}")
     private Integer expire;
     private Key secretKey;
-
-    private boolean isInit;
-
-    public boolean getIsInit(){
-        return this.isInit;
-    }
-
-    public JsonWebTokenUtility() {
-
-    }
     public void init(){
-        //算法
-        signatureAlgorithm = SignatureAlgorithm.HS512;
         //密钥
-        secretKey = deserializeKey(encodedKey);
-        isInit=true;
+        if(Objects.isNull(secretKey)) {
+            secretKey = deserializeKey(encodedKey);
+        }
     }
     /**
      * 创建jwt token
