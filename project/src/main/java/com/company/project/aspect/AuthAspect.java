@@ -4,7 +4,6 @@ import com.company.common.exception.GlobalException;
 import com.company.common.model.StatusCode;
 import com.company.project.jwt.AuthTokenDetails;
 import com.company.project.jwt.JsonWebTokenUtility;
-import com.mongodb.BasicDBObject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -63,10 +62,7 @@ public class AuthAspect {
             ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
             HttpServletRequest request = attributes.getRequest();
             if(!pattern(request)){
-                //获得token
-                if(!jsonWebTokenUtility.getIsInit()) {
-                    jsonWebTokenUtility.init();
-                }
+                jsonWebTokenUtility.init();
                 String token = request.getHeader("Authorization");
                 //验证token
                 if(token==null || "".equals(token)){
