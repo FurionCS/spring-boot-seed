@@ -1,6 +1,6 @@
 package ${basePackage}.web;
 
-import com.company.common.response.RestfulResponse;
+import com.company.common.response.ObjectResponse;
 import ${basePackage}.model.${modelNameUpperCamel};
 import ${basePackage}.service.${modelNameUpperCamel}Service;
 import com.github.pagehelper.PageHelper;
@@ -27,32 +27,27 @@ public class ${modelNameUpperCamel}Controller {
     private ${modelNameUpperCamel}Service ${modelNameLowerCamel}Service;
 
     @PostMapping("/add")
-    public RestfulResponse add(@Validated @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel},BindingResult result) {
-        RestfulResponse restfulResponse=new RestfulResponse("${baseRequestMapping}/add");
+    public ObjectResponse add(@Validated @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel},BindingResult result) {
         ${modelNameLowerCamel}Service.save(${modelNameLowerCamel});
-        return restfulResponse;
+        return new ObjectResponse("/user/add");
     }
 
     @PostMapping("/delete")
-    public RestfulResponse delete(@RequestParam Integer id) {
-        RestfulResponse restfulResponse=new RestfulResponse("${baseRequestMapping}/delete");
+    public ObjectResponse delete(@RequestParam Integer id) {
         ${modelNameLowerCamel}Service.deleteById(id);
-        return restfulResponse;
+        return new ObjectResponse("/user/delete");
     }
 
     @PostMapping("/update")
-    public RestfulResponse update(@Validated @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel},BindingResult result) {
-        RestfulResponse restfulResponse=new RestfulResponse("${baseRequestMapping}/update");
+    public ObjectResponse update(@Validated @RequestBody ${modelNameUpperCamel} ${modelNameLowerCamel},BindingResult result) {
         ${modelNameLowerCamel}Service.update(${modelNameLowerCamel});
-        return restfulResponse;
+        return new ObjectResponse("/user/update");
     }
     @PostMapping("/list")
-    public RestfulResponse list(@RequestParam(defaultValue = "0",value="pageIndex") Integer pageIndex, @RequestParam(defaultValue = "0",value="pageSize") Integer pageSize) {
-        RestfulResponse restfulResponse=new RestfulResponse("${baseRequestMapping}/list");
+    public ObjectResponse list(@RequestParam(defaultValue = "0",value="pageIndex") Integer pageIndex, @RequestParam(defaultValue = "0",value="pageSize") Integer pageSize) {
         PageHelper.startPage(pageIndex, pageSize);
         List<${modelNameUpperCamel}> list = ${modelNameLowerCamel}Service.findAll();
         PageInfo pageInfo = new PageInfo(list);
-        restfulResponse.setResult(pageInfo);
-        return restfulResponse;
+        return new ObjectResponse("/user/list",pageInfo);
     }
 }
