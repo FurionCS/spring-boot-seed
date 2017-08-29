@@ -6,6 +6,11 @@ package com.company.common.model;
  * @Date 2017/6/6.
  */
 public class RedisKey {
+
+    private RedisKey(){
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * expamle :shop_product_id:16
      */

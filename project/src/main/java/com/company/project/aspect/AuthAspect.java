@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
 @Order(2)
 public class AuthAspect {
 
-    @Value("${jwt.unAuhUrl}")
+    @Value("${jwt.unAuhUrl:''}")
     private String unAuthUrl;
 
     @Value("${jwt.auth.switch:false}")

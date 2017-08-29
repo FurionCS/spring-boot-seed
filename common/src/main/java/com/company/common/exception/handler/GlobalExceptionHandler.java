@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = GlobalException.class)
-    public ErrorInfo<String> jsonErrorHandler(HttpServletRequest req, GlobalException e) throws Exception {
+    public ErrorInfo<String> jsonErrorHandler(HttpServletRequest req, GlobalException e){
         ErrorInfo<String> r = new ErrorInfo<>();
         r.setMessage(e.getErrorInfo().getMessage());
         r.setCode(e.getErrorInfo().getCode());

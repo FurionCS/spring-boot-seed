@@ -9,20 +9,20 @@ import lombok.Data;
 @Data
 public class ObjectResponse implements Response {
     private static final long serialVersionUID = -7443304902819898146L;
+    private static final ObjectResponse RESPONSE=new ObjectResponse();
     // api请求类型
-    protected String action;
+    private String action;
     // 状态码
-    protected StatusCode code=StatusCode.Success;
+    private StatusCode code=StatusCode.Success;
     // 状态信息
-    protected String message="操作成功";
+    private String message="操作成功";
     //参数
 //    @JsonIgnore
     private Object[] args;
     //结果
     private Object result;
 
-    public ObjectResponse() {
-    }
+    private ObjectResponse() {}
 
     public ObjectResponse(String action){
        this(action,null);
@@ -33,12 +33,9 @@ public class ObjectResponse implements Response {
         this.result=result;
     }
 
-
-
     public ObjectResponse(StatusCode code,String message){
         this("",code,message);
     }
-
 
     public ObjectResponse(String action, StatusCode code, String message) {
        this(action,code,message,null);
@@ -50,4 +47,9 @@ public class ObjectResponse implements Response {
         this.message = message;
         this.args = args;
     }
+
+    public static ObjectResponse getInstance(){
+        return RESPONSE;
+    }
+
 }
