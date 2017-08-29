@@ -22,11 +22,7 @@ import java.util.*;
 @Component
 @NoArgsConstructor
 public class JsonWebTokenUtility {
-    private static SignatureAlgorithm signatureAlgorithm;
-    static{
-        //算法
-        signatureAlgorithm = SignatureAlgorithm.HS512;
-    }
+    private static final SignatureAlgorithm SIGNATUREALGORITHM=SignatureAlgorithm.HS512;
     /**
      * 秘钥
      */
@@ -71,8 +67,8 @@ public class JsonWebTokenUtility {
         return secretKey;
     }
 
-    public SignatureAlgorithm getSignatureAlgorithm() {
-        return signatureAlgorithm;
+    private SignatureAlgorithm getSignatureAlgorithm() {
+        return SIGNATUREALGORITHM;
     }
 
     /**
