@@ -25,7 +25,7 @@ public class ObjectResponse implements Response {
     private ObjectResponse() {}
 
     public ObjectResponse(String action){
-       this(action,null);
+        this(action,null);
     }
 
     public ObjectResponse(String action,Object result){
@@ -38,7 +38,7 @@ public class ObjectResponse implements Response {
     }
 
     public ObjectResponse(String action, StatusCode code, String message) {
-       this(action,code,message,null);
+        this(action,code,message,null);
     }
 
     public ObjectResponse(String action, StatusCode code, String message, Object[] args) {
