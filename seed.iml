@@ -17,7 +17,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="common" />
+    <orderEntry type="library" name="Maven: com.spring.boot:common:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.5.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.5.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.3.10.RELEASE" level="project" />
@@ -66,5 +66,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.3.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.3" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
   </component>
 </module>

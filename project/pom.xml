@@ -51,6 +51,10 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+
+		<!--在使用 DevTools 时，通用Mapper经常会出现 class x.x.A cannot be cast to x.x.A。 -->
+		<!-- 解决方案：在resources下创建META-INF 新建文件spring-devtools.properties ，添加内容  restart.include.mapper=/mapper-[\\w-\\.]+jar-->
+		<!--DevTools时会和swagger出现问题 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
